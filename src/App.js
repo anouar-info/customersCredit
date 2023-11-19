@@ -8,7 +8,7 @@ import Users from './pages/user/Users';
 
 function App() {
   return (
-    <div className="App h-screen bg-cover bg-center relative bg-[url('../public/zelligBg.jpeg')]">
+    <div className="App">
       <Navbar/>
       <Routes>
         <Route  path="/" exact element={<Home/>} />

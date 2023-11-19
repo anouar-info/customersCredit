@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  height: 100vh; /* Equivalent to h-screen in Tailwind */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  background-image: url('../public/zelligBg.jpeg');
 }
 
 .App-logo {
