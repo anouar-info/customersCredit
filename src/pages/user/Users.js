@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import "./users.css";
 function Users() {
   const { id } = useParams();
 
@@ -14,40 +14,45 @@ function Users() {
   }, []);
 
   console.log(user);
+  function deleteUser(id) {
+    axios
+      .delete(`http://localhost:3001/users/${id}`)
+      .catch((error) => {
+        console.error("Error deleting user:", error);
+      });
+  }
   return (
     <>
-      <div className="h-full w-full flex flex-col mt-32 justify-center items-center">
-        <Link
-          to={`/`}
-          className="hover:bg-teal-600 bg-white hover:shadow-md  outline-none rounded-xl font-bold border mt-8 hover:text-teal-200 text-teal-600 border-zinc-400 py-4 px-4 pl-4"
-        >
-          Back To Home
-        </Link>
+      <div className="users h-full w-full  flex flex-col justify-center items-center">
+        
         {user && (
-          <div className="w-[700px] h-[200] px-6 py-4 flex shadow-xl rounded-xl justify-center items-center bg-teal-600 mt-16 border-teal-800 border-2">
-            <div className="w-5/12 flex flex-col space-y-4">
-              <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Name
-              </h2>
-              <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Email
-              </h2>
-              <h2 className="text-white font-bold text-3xl border-black border-b-2">
-                Phone
-              </h2>
-            </div>
-            <div className="w-7/12 flex flex-col space-y-4  ">
-              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.name}
-              </h2>
-              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.email}
-              </h2>
-              <h2 className="text-teal-200 font-bold text-3xl border-black border-b-2">
-                {user.phone}
-              </h2>
-            </div>
-          </div>
+          
+
+<div className="w-full max-w-md bg-blue-100 border border-gray-200 rounded-lg shadow ">
+
+<div className="flex flex-col items-center mt-10 mb-14">
+    
+    <h1 className="mb-4 text-4xl font-medium text-gray-900 ">{user.name}</h1>
+    <h3 className="text-lg text-gray-700 mt-6">{user.email}</h3>
+    <h3 className="text-lg text-gray-700 mt-2">{user.phone}</h3>
+    <div className="flex mt-20 md:mt-6">
+    <Link
+    to={`/edit-user/${user.id}`}
+    className="bg-blue-600 text-white text-lg font-bold px-6 py-2 rounded-lg mx-4"
+  >
+    Edit
+  </Link>
+  <Link
+    onClick={() => deleteUser(user.id)}
+    to={"#"}
+    className="bg-red-600 text-white text-lg font-bold px-6 py-2 rounded-lg mx-4"
+  >
+    Delete
+  </Link>
+    </div>
+</div>
+</div>
+
         )}
       </div>
     </>

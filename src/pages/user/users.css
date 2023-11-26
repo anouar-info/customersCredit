@@ -1,0 +1,15 @@
+
+.users{
+    height: 100vh; /* Equivalent to h-screen in Tailwind */
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      background-image: url('../../assets/bab.jpeg');
+    }
+.edit{
+      height: 100vh; /* Equivalent to h-screen in Tailwind */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        background-image: url('../../assets/window.jpeg');
+      }

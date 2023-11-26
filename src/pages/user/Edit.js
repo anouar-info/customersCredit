@@ -30,39 +30,77 @@ function Add() {
     axios.put(`http://localhost:3001/users/${id}`, data).then(navigate("/"));
   }
   return (
-    <div className="w-screen h-full flex flex-col justify-center items-center mt-16">
-      <h2 className="text-2xl font-bold">User Details</h2>
-      <form className="w-[50%] h-full flex flex-col mt-2">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
-          type="text"
-          placeholder="Enter your name"
-        />
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
-          type="email"
-          placeholder="Enter your email"
-        />
-        <input
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          className="bg-white/10 outline-none font-normal border border-zinc-400 py-6 pl-6 mt-4"
-          type="phone"
-          placeholder="Enter your phone no."
-        />
-        <button
-          className="bg-teal-600 outline-none font-bold border text-white border-zinc-400 py-4 pl-4 mt-4"
-          type="submit"
-          onClick={Update}
-        >
-          UPDATE USER
-        </button>
-      </form>
-    </div>
+    <>
+      <div className="edit w-screen h-full flex flex-col justify-center items-center ">
+        <div className="w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 mt-20">
+          <form className="space-y-6" action="#">
+            <h5 className="text-xl font-medium text-gray-900 ">
+              User details
+            </h5>
+            <div>
+              <label
+                htmlFor="name"
+                className="text-left block mb-2 text-sm font-medium text-gray-900 "
+              >
+                Full Name :
+              </label>
+              <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                type="text"
+                name="name"
+                id="name"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                placeholder="name@company.com"
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="text-left block mb-2 text-sm font-medium text-gray-900 "
+              >
+                Email :
+              </label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                name="email"
+                id="email"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                required
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="email"
+                className="text-left block mb-2 text-sm font-medium text-gray-900 "
+              >
+                Phone Number :
+              </label>
+              <input
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                type="phone"
+                name="phone"
+                id="phone"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              onClick={Update}
+              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+            >
+              Update user
+            </button>
+          </form>
+        </div>
+      </div>
+    </>
   );
 }
 

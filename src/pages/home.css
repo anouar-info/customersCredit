@@ -1,0 +1,18 @@
+
+.home{
+height: 100vh; /* Equivalent to h-screen in Tailwind */
+  
+  background: url('../assets/zelligBg.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.navbar{
+
+background: rgba(38, 130, 226, 0.21);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.1px);
+-webkit-backdrop-filter: blur(4.1px);
+}
